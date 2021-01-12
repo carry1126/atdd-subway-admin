@@ -26,7 +26,7 @@ public class LineService {
         this.stationRepository = stationRepository;
     }
 
-    public LineResponse saveLine(LineRequest request) {
+    public LineResponse  saveLine(LineRequest request) {
         Line persistLine = lineRepository.save(request.toLine());
 
         if (request.getUpStationId() != null) {
