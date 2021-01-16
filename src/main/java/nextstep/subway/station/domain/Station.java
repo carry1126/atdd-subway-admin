@@ -26,11 +26,20 @@ public class Station extends BaseEntity {
         this.name = name;
     }
 
+
+    public void changeName(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public List<Section> getSections() {
+        return sections;
     }
 }

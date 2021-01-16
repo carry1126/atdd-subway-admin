@@ -5,8 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface StationRepository extends JpaRepository<Station, Long> {
-    @Override
-    List<Station> findAll();
-
-    Station findByName(String 강남역);
+    Station findByName(String name);
 }
