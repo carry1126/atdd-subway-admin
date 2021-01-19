@@ -122,12 +122,12 @@ public class Line extends BaseEntity {
     }
 
     private void deleteStation(Station station) {
-        if (!sections.contains(station)) {
-            throw new IllegalArgumentException("노선에 삭제할 역이 없습니다!");
-        }
-
+        int count = 0;
         for (Section targetSection:sections) {
             executeRestructorSection(station, targetSection);
+        }
+        if (count == 0) {
+            throw new IllegalArgumentException("노선에 삭제할 역이 없습니다.");
         }
     }
 
@@ -138,6 +138,7 @@ public class Line extends BaseEntity {
             Station downStation = sections.get(count+1).getDownStation();
             sections.remove(count+1);
             targetSection.changeSection(downStation, addDistance);
+            count++;
         }
     }
 
